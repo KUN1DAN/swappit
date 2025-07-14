@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swappit</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <style>
+    #reader {
+      width: 300px;
+      margin: 20px auto;
+      display: none;
+    }
+    #close-scanner {
+      display: none;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🔋 Swappit</h1>
+      <p>Your EV Battery Wallet</p>
+    </header>
+
+    <section class="wallet">
+      <h2>Recharge Balance</h2>
+      <ul>
+        <li>🟤 Basic (₹50): <span id="basic-count">0</span></li>
+        <li>🟠 Smart (₹75): <span id="smart-count">0</span></li>
+        <li>🟢 Prime (₹99): <span id="prime-count">0</span></li>
+      </ul>
+    </section>
+
+    <section class="actions">
+      <button onclick="useRecharge()">🔄 Use Recharge</button>
+      <button onclick="buyRecharge()">🛒 Buy Recharge</button>
+      <button onclick="recycleBattery()">♻ Recycle Battery</button>
+      <button onclick="startScanner()">📷 Scan QR</button>
+      <button id="close-scanner" onclick="stopScanner()">✖ Close Scanner</button>
+    </section>
+
+    <div id="reader"></div>
+
+    <footer>
+      <p>Built by Kundan Singh 💚</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    let qrScanner;
+
+    function startScanner() {
+      document.getElementById("reader").style.display = "block";
+      document.getElementById("close-scanner").style.display = "inline-block";
+      qrScanner = new Html5Qrcode("reader");
+
+      qrScanner.start(
+        { facingMode: "environment" },
+        {
+          fps: 10,
+          qrbox: 250
+        },
+        (decodedText) => {
+          qrScanner.stop().then(() => {
+            document.getElementById("reader").style.display = "none";
+            document.getElementById("close-scanner").style.display = "none";
+            window.location.href = decodedText;
+          });
+        },
+        (errorMessage) => {
+          // silently ignore errors
+        }
+      );
+    }
+
+    function stopScanner() {
+      if (qrScanner) {
+        qrScanner.stop().then(() => {
+          document.getElementById("reader").style.display = "none";
+          document.getElementById("close-scanner").style.display = "none";
+        });
+      }
+    }
+  </script>
+</body>
+</html>
