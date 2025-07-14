@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f4f4;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app {
+  background: #fff;
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+  color: #26a65b;
+  text-align: center;
+}
+
+header p {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1em;
+  color: #666;
+}
+
+.wallet {
+  background: #e8f5e9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.wallet h2 {
+  margin-top: 0;
+  font-size: 1.2em;
+}
+
+.wallet ul {
+  list-style: none;
+  padding: 0;
+}
+
+.wallet li {
+  margin: 8px 0;
+  font-size: 1.1em;
+}
+
+.actions button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  font-size: 1em;
+  background: #26a65b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.actions button:hover {
+  background: #1e8449;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #888;
+}

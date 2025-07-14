@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swappit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🔋 Swappit</h1>
+      <p>Your EV Battery Wallet</p>
+    </header>
+
+    <section class="wallet">
+      <h2>Recharge Balance</h2>
+      <ul>
+        <li>🟤 Basic (₹50): <span id="basic-count">0</span></li>
+        <li>🟠 Smart (₹75): <span id="smart-count">0</span></li>
+        <li>🟢 Prime (₹99): <span id="prime-count">0</span></li>
+      </ul>
+    </section>
+
+    <section class="actions">
+      <button onclick="useRecharge()">🔄 Use Recharge</button>
+      <button onclick="buyRecharge()">🛒 Buy Recharge</button>
+      <button onclick="recycleBattery()">♻ Recycle Battery</button>
+      <button onclick="scanQR()">📷 Scan QR (Demo)</button>
+    </section>
+
+    <footer>
+      <p>Built by Kundan Singh 💚</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
